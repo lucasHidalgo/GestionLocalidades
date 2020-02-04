@@ -1,0 +1,30 @@
+<form id="form1" name="form1" #form="ngForm">
+  <div>    
+    <label>Pais</label>
+    <!-- <select [(ngModel)]="" (change)="onSelectPais($event.target.value)">
+      <option >Seleccione un pais</option>
+      <option *ngFor="let pais of paises" [value]="pais.Id">         
+        {{pais.Nombre}}
+      </option>
+    </select> -->
+    
+  <select [ngModel]="paisSelected" (ngModelChange)="onSelectPais($event)" name="sel2">
+    <option disabled >Seleccione un pais</option>
+      <option [ngValue]="pais.Id" *ngFor="let pais of paises">{{pais.Nombre}}</option>
+  </select>   
+  </div>
+  <div>    
+    <label>Provincia</label>
+    <select [(ngModel)]="localidad.ProvinciaId" id="provincias" name="provincias">
+      <option disabled >Seleccione una provincia</option>
+      <option *ngFor="let provincia of provincias" [value]="provincia.Id">
+        {{provincia.Nombre}}
+      </option>
+    </select>
+  </div>
+  <div>    
+    <label>Nombre localidad</label>
+    <input [(ngModel)]="localidad.Nombre" id="nombreLocalidad" name="nombreLocalidad"/>
+  </div>
+  <button (click)="agregarLocalidad()">Agregar localidad</button>
+</form>

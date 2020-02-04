@@ -1,0 +1,21 @@
+<p>
+  lista-localidades works!
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Provincia</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let localidad of localidades">
+    <td>{{localidad.Id}}</td>
+    <td>{{localidad.Nombre}}</td>
+    <td>{{localidad.Provincias.Nombre}}</td>
+    <td (click)="borrarLocalidad(localidad.Id)"> <button>Borrar</button></td>
+    <td [routerLink]="[ '/localidad/', localidad.Id ]"> <button>Editar</button></td>
+    </tr>
+  </tbody>
+</table>
